@@ -585,6 +585,15 @@ body::before {
     border-radius: var(--border-radius);
     filter: grayscale(100%) brightness(0.8) contrast(1.2);
     transition: all 0.8s ease;
+    display: block;
+}
+
+.about-image video {
+    width: 100%;
+    height: auto;
+    border-radius: var(--border-radius);
+    transition: all 0.8s ease;
+    display: block;
 }
 
 .about-image:hover img {
@@ -592,24 +601,6 @@ body::before {
     transform: scale(1.05);
 }
 
-/* High-tech border frame */
-.about-image::before {
-    content: '';
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    z-index: 1;
-    pointer-events: none;
-    transition: var(--transition);
-}
-
-.about-image:hover::before {
-    border-color: rgba(0, 240, 255, 0.5);
-    transform: scale(0.95);
-}
 
 .about-content h2 {
     font-size: 3rem;
