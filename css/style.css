@@ -307,15 +307,22 @@ a:hover {
     overflow: hidden;
 }
 
-/* Hexagon Grid Background */
-.hero::before {
+/* Global Shield Grid Background */
+body::before {
     content: '';
-    position: absolute;
-    inset: -50%;
-    background-image: url("data:image/svg+xml,%3Csvg width='60' height='103.92' viewBox='0 0 60 103.92' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 103.923L0 86.603V51.962L30 34.641l30 17.321v34.64l-30 17.322zm0-2.309l28-16.166V53.115L30 36.95 2 53.115v32.332L30 101.614zM30 51.962L0 34.641V0l30-17.321L60 0v34.641L30 51.962zm0-2.309l28-16.166V1.155L30-15.01 2 1.155v32.332L30 49.653z' fill='%2300f0ff' fill-opacity='0.03' fill-rule='evenodd'/%3E%3C/svg%3E");
-    z-index: 0;
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background-image: url('../images/shield-icon.png');
+    background-size: 80px;
+    background-repeat: repeat;
+    opacity: 0.04;
+    z-index: -1;
     transform: rotate(15deg);
     animation: drift 60s linear infinite;
+    pointer-events: none;
 }
 
 @keyframes drift {
@@ -807,7 +814,7 @@ textarea.form-control {
 /* Page Header */
 .page-header {
     padding: 200px 0 100px;
-    background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.05) 0%, var(--bg-dark) 70%);
+    background: radial-gradient(circle at 50% 0%, rgba(0, 240, 255, 0.05) 0%, transparent 70%);
     text-align: center;
     border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
