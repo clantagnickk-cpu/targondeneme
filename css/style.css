@@ -67,6 +67,19 @@
     color: var(--bg-dark);
 }
 
+/* Scroll Progress Bar */
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow);
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+
 /* Reset & Base */
 * {
     margin: 0;
@@ -162,8 +175,8 @@ a:hover {
 .text-gradient {
     background: linear-gradient(135deg, #fff 0%, var(--accent-cyan) 50%, var(--accent-blue) 100%);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
-    display: inline-block;
 }
 
 .section-padding {
@@ -233,7 +246,8 @@ a:hover {
     font-family: var(--font-heading);
     font-size: 2rem;
     font-weight: 400;
-    letter-spacing: 2px;
+    letter-spacing: 12px;
+    margin-right: -12px;
     line-height: 1;
 }
 
@@ -241,12 +255,12 @@ a:hover {
 .brand-name .gon { color: var(--accent-cyan); }
 
 .brand-slogan {
-    font-size: 0.65rem;
+    font-size: 0.75rem;
     color: var(--text-muted);
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    margin-top: 4px;
-    font-weight: 300;
+    letter-spacing: 1px;
+    margin-top: 2px;
+    white-space: nowrap;
+    font-weight: 400;
 }
 
 .nav-links {
@@ -257,12 +271,13 @@ a:hover {
 
 .nav-links a {
     color: var(--text-main);
-    font-weight: 300;
+    font-weight: 600; /* Bold */
     font-size: 0.9rem;
     text-transform: uppercase;
     letter-spacing: 2px;
     position: relative;
     padding: 0.5rem 0;
+    white-space: nowrap;
 }
 
 .nav-links a::after {
@@ -286,6 +301,29 @@ a:hover {
     width: 100%;
     height: 1px;
     border-radius: 0;
+}
+
+.lang-switcher {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: 1rem;
+    padding-left: 1.5rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.lang-switcher a {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.lang-switcher a.active, .lang-switcher a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.lang-switcher a::after {
+    display: none; /* remove hover line for lang switcher */
 }
 
 .mobile-toggle {
@@ -334,6 +372,8 @@ body::before {
     max-width: 850px;
     position: relative;
     z-index: 2;
+    margin: 0 auto;
+    text-align: center;
 }
 
 .hero h1 {
@@ -345,7 +385,7 @@ body::before {
 .hero p {
     font-size: 1.3rem;
     color: var(--text-muted);
-    margin-bottom: 3rem;
+    margin: 0 auto 3rem auto;
     max-width: 600px;
     font-weight: 300;
 }
@@ -395,9 +435,15 @@ body::before {
 
 /* Services Grid - Unique Asymmetric Look */
 .services-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 2rem;
+}
+.services-grid > * {
+    flex: 0 1 calc(33.333% - 1.5rem);
+    min-width: 320px;
+    max-width: 400px;
 }
 
 .service-card {
@@ -412,6 +458,8 @@ body::before {
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Center horizontally */
+    text-align: center;  /* Center text */
     height: 100%;
 }
 
@@ -455,7 +503,7 @@ body::before {
     transform: translate(-50%, -50%);
     width: 60px;
     height: 60px;
-    background: rgba(0, 240, 255, 0.1);
+    background: transparent;
     border-radius: 50%;
     filter: blur(10px);
     z-index: -1;
@@ -465,7 +513,7 @@ body::before {
 .service-card:hover .service-icon::before {
     width: 80px;
     height: 80px;
-    background: rgba(0, 240, 255, 0.2);
+    background: transparent;
 }
 
 .service-card h3 {
@@ -948,4 +996,187 @@ textarea.form-control {
     .contact-form {
         padding: 2.5rem 1.5rem;
     }
+}
+
+/* ======================================================
+    LIGHT MODE THEME
+====================================================== */
+body.light-mode {
+    --bg-dark: #f8fafc;
+    --bg-darker: #f1f5f9;
+    --bg-card: rgba(255, 255, 255, 0.7);
+    
+    --text-main: #0f172a; 
+    --text-muted: #475569;
+    
+    --accent-cyan: #0284c7; 
+    --accent-blue: #2563eb;
+    --accent-glow: rgba(2, 132, 199, 0.2);
+    
+    --border-thin: 1px solid rgba(15, 23, 42, 0.1);
+}
+
+
+body.light-mode .brand-name .tar {
+    color: #0f172a; /* Make TAR black instead of white */
+}
+
+/* Light Mode specific adjustments */
+body.light-mode .hero::before {
+    opacity: 0.1; /* Less prominent background pattern */
+}
+
+body.light-mode .service-card,
+body.light-mode .feature-card,
+body.light-mode .contact-card {
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .service-card:hover {
+    box-shadow: 0 15px 40px rgba(2, 132, 199, 0.15);
+}
+
+body.light-mode .navbar {
+    background: rgba(248, 250, 252, 0.9);
+}
+
+body.light-mode .navbar.scrolled {
+    background: rgba(248, 250, 252, 0.95);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode input,
+body.light-mode textarea {
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--text-main);
+    border-color: rgba(15, 23, 42, 0.2);
+}
+
+body.light-mode .service-icon {
+    background: transparent;
+}
+
+/* Light Mode Overrides for Hardcoded Whites and Gradients */
+body.light-mode h1, 
+body.light-mode h2, 
+body.light-mode h3, 
+body.light-mode h4, 
+body.light-mode h5, 
+body.light-mode h6 {
+    color: var(--text-main);
+}
+
+body.light-mode .text-gradient {
+    background: linear-gradient(135deg, var(--text-main) 0%, var(--accent-cyan) 50%, var(--accent-blue) 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+body.light-mode a:hover {
+    color: var(--accent-blue);
+    text-shadow: none;
+}
+
+body.light-mode .btn-primary {
+    background: var(--accent-blue);
+    color: #ffffff;
+    border: none;
+}
+
+body.light-mode .btn-primary:hover {
+    background: var(--accent-cyan);
+    color: #ffffff;
+}
+
+body.light-mode .footer-links h4,
+body.light-mode .footer-links a:hover,
+body.light-mode .contact-item h3 {
+    color: var(--text-main);
+}
+
+body.light-mode .contact-item i {
+    color: var(--accent-cyan);
+}
+
+@media (max-width: 992px) {
+    body.light-mode .nav-links {
+        background: rgba(248, 250, 252, 0.98);
+    }
+}
+
+/* Theme Toggle Button Styles */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    margin-left: 1rem;
+}
+
+.theme-toggle:hover {
+    color: var(--accent-cyan);
+    background: rgba(255, 255, 255, 0.05);
+}
+
+body.light-mode .theme-toggle:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.theme-toggle i {
+    transition: var(--transition);
+}
+
+/* Light mode icon specific (sun vs moon) */
+body.light-mode .theme-toggle .fa-moon {
+    display: block !important;
+}
+body.light-mode .theme-toggle .fa-sun {
+    display: none !important;
+}
+
+/* Dark mode icon specific */
+body:not(.light-mode) .theme-toggle .fa-sun {
+    display: block !important;
+}
+body:not(.light-mode) .theme-toggle .fa-moon {
+    display: none !important;
+}
+
+/* ======================================================
+    CUSTOM SCROLLBAR & PROGRESS
+====================================================== */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-darker);
+}
+::-webkit-scrollbar-thumb {
+    background: var(--accent-cyan);
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent-blue);
+}
+
+.scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-cyan), var(--accent-blue));
+    z-index: 9999;
+    box-shadow: 0 0 10px var(--accent-glow);
+    transition: width 0.1s ease-out;
 }

@@ -1,6 +1,4 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
+<!DOCTYPE html><html lang="tr"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>İletişim | TARGON Security</title>
@@ -8,8 +6,8 @@
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=Roboto:wght@300;400;500&amp;display=swap" rel="stylesheet">
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -39,6 +37,19 @@
                 <li><a href="services.html">Hizmetler</a></li>
                 <li><a href="about.html">Hakkımızda</a></li>
                 <li><a href="contact.html" class="active">İletişim</a></li>
+            
+                <li class="lang-switcher">
+                    <a href="#" class="active">TR</a>
+                    <span>|</span>
+                    <a href="en/contact.html">EN</a>
+        </li>
+            
+                <li class="theme-toggle-li">
+                    <button class="theme-toggle" aria-label="Toggle Theme">
+                        <i class="fas fa-sun"></i>
+                        <i class="fas fa-moon" style="display:none;"></i>
+                    </button>
+                </li>
             </ul>
         </div>
     </nav>
@@ -86,9 +97,9 @@
                     <div class="contact-item" style="margin-top: 3rem;">
                         <h4 style="margin-bottom: 1rem; width: 100%;">Bizi Takip Edin</h4>
                         <div style="display: flex; gap: 1rem;">
-                            <a href="#" style="font-size: 1.5rem; color: #fff;"><i class="fab fa-linkedin"></i></a>
-                            <a href="#" style="font-size: 1.5rem; color: #fff;"><i class="fab fa-twitter"></i></a>
-                            <a href="#" style="font-size: 1.5rem; color: #fff;"><i class="fab fa-github"></i></a>
+                            <a href="#" style="font-size: 1.5rem; color: var(--text-main);"><i class="fab fa-linkedin"></i></a>
+                            <a href="#" style="font-size: 1.5rem; color: var(--text-main);"><i class="fab fa-twitter"></i></a>
+                            <a href="#" style="font-size: 1.5rem; color: var(--text-main);"><i class="fab fa-github"></i></a>
                         </div>
                     </div>
                 </div>
@@ -103,19 +114,19 @@
                         <input type="text" style="display:none;" name="returnURL" value="https://targonsecurity.com/contact.html">
                         
                         <div class="form-group">
-                            <input type="text" class="form-control" name="Last Name" id="name" placeholder="Adınız Soyadınız" required>
+                            <input type="text" class="form-control" name="Last Name" id="name" placeholder="Adınız Soyadınız" required="">
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" name="Email" id="email" placeholder="E-posta Adresiniz" required>
+                            <input type="email" class="form-control" name="Email" id="email" placeholder="E-posta Adresiniz" required="">
                         </div>
                         <div class="form-group">
                             <input type="tel" class="form-control" name="Mobile" id="phone" placeholder="Telefon Numaranız">
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" name="Company" id="companyName" placeholder="Firma/Kurum Adı" required>
+                            <input type="text" class="form-control" name="Company" id="companyName" placeholder="Firma/Kurum Adı" required="">
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" name="Description" id="message" placeholder="Mesajınız" required></textarea>
+                            <textarea class="form-control" name="Description" id="message" placeholder="Mesajınız" required=""></textarea>
                         </div>
                         <input type="hidden" name="Lead_Source" value="İletişim Sayfası">
                         <button type="submit" class="btn-submit">Gönder <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i></button>
@@ -143,7 +154,7 @@
                 </div>
                 
                 <div class="footer-links" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Hızlı Menü</h4>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">Hızlı Menü</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
                         <li><a href="index.html">Ana Sayfa</a></li>
                         <li><a href="services.html">Hizmetlerimiz</a></li>
@@ -153,7 +164,7 @@
                 </div>
                 
                 <div class="footer-links" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Hizmetler</h4>
+                    <h4 style="color: var(--text-main); margin-bottom: 0.5rem;">Hizmetler</h4>
                     <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
                         <li><a href="services/kobi-bt-hizmetleri.html">KOBİ BT Hizmetleri</a></li>
                         <li><a href="services/kurumsal-ag.html">Kurumsal Ağ ve Altyapı</a></li>
@@ -164,12 +175,13 @@
             </div>
             
             <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center;">
-                <p style="color: var(--text-muted); font-size: 0.9rem;">&copy; 2026 Targon Bilgi Güvenliği Ltd. Tüm Hakları Saklıdır.</p>
+                <p style="color: var(--text-muted); font-size: 0.9rem;">© 2026 Targon Bilgi Güvenliği Ltd. Tüm Hakları Saklıdır.</p>
             </div>
         </div>
     </footer>
 
     <!-- Custom JS -->
     <script src="js/main.js"></script>
-</body>
-</html>
+
+
+</body></html>

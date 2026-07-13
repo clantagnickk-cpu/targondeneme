@@ -1,4 +1,23 @@
+// Theme Initialization (Runs immediately to prevent flash)
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+    document.body.classList.add('light-mode');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
+    // Theme Toggle Logic
+    const themeToggles = document.querySelectorAll('.theme-toggle');
+    themeToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            if (document.body.classList.contains('light-mode')) {
+                localStorage.setItem('theme', 'light');
+            } else {
+                localStorage.setItem('theme', 'dark');
+            }
+        });
+    });
+
     // Dynamic Cursor & Glow Element Creation
     const glow = document.createElement('div');
     glow.id = 'cursor-glow';
@@ -56,15 +75,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Scroll Progress Bar
+    const scrollProgress = document.createElement('div');
+    scrollProgress.className = 'scroll-progress';
+    document.body.appendChild(scrollProgress);
+
     // Navbar Scroll Effect
     const navbar = document.querySelector('.navbar');
     
     window.addEventListener('scroll', () => {
+        // Navbar logic
         if (window.scrollY > 50) {
             navbar.classList.add('scrolled');
         } else {
             navbar.classList.remove('scrolled');
         }
+
+        // Scroll Progress logic
+        const scrollPx = document.documentElement.scrollTop || document.body.scrollTop;
+        const winHeightPx = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (scrollPx / winHeightPx) * 100;
+        scrollProgress.style.width = scrolled + '%';
     });
 
     // Mobile Menu Toggle
@@ -104,4 +135,15 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('scroll', reveal);
     // Trigger once on load with slight delay for initial layout
     setTimeout(reveal, 100);
+
+    // Scroll Progress Bar Logic
+    const progressBar = document.createElement('div');
+    progressBar.className = 'scroll-progress';
+    document.body.appendChild(progressBar);
+
+    window.addEventListener('scroll', () => {
+        const windowHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (window.scrollY / windowHeight) * 100;
+        progressBar.style.width = scrolled + '%';
+    });
 });
