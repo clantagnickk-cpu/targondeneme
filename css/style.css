@@ -10,14 +10,17 @@
     font-weight: 300;
     font-style: normal;
     font-display: swap;
+    /* Exclude numbers (U+0030-0039) so they fall back to the next font (Inter) */
+    unicode-range: U+0000-002F, U+003A-10FFFF;
 }
 
 @font-face {
     font-family: 'Coco Sharp';
     src: url('../fonts/Coco-Sharp-Regular-trial.ttf') format('truetype');
-    font-weight: 400; /* We'll use this for regular and bold since it's the only other weight we have */
+    font-weight: 400;
     font-style: normal;
     font-display: swap;
+    unicode-range: U+0000-002F, U+003A-10FFFF;
 }
 
 :root {
@@ -34,8 +37,8 @@
     --accent-glow: rgba(0, 240, 255, 0.4);
     
     /* Typography - using the user's custom fonts */
-    --font-heading: 'Coco Sharp', sans-serif;
-    --font-body: 'Coco Sharp', sans-serif;
+    --font-heading: 'Coco Sharp', 'Inter', sans-serif;
+    --font-body: 'Coco Sharp', 'Inter', sans-serif;
     
     /* Spacing & Transitions */
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); /* Smoother, sleeker transition */
@@ -211,6 +214,8 @@ a:hover {
     display: flex;
     align-items: center;
     gap: 1rem;
+    position: relative;
+    z-index: 1001; /* Stay above mobile menu */
 }
 
 .brand-logo {
@@ -287,7 +292,9 @@ a:hover {
     display: none;
     font-size: 1.5rem;
     color: #fff;
-    cursor: none;
+    cursor: auto;
+    position: relative;
+    z-index: 1001; /* Stay above mobile menu */
 }
 
 /* Unique Hero Section */
@@ -860,6 +867,7 @@ textarea.form-control {
         gap: 2.5rem;
         transition: var(--transition);
         backdrop-filter: blur(10px);
+        z-index: 1000;
     }
     
     .nav-links.active {
