@@ -16,6 +16,14 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
+    <script>
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'light') {
+                document.body.classList.add('light-mode');
+            }
+        })();
+    </script>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -81,9 +89,8 @@
                     <p>Endpoint security, vulnerability scanning, and advanced threat detection systems.</p>
                     <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
                 </div>
-            </div>
-        </div>
-    <!-- Service 2 -->
+                
+                <!-- Service 2 -->
                 <div class="service-card">
                     <div class="service-card-glow"></div>
                     <div class="service-icon"><i class="fas fa-network-wired"></i></div>
@@ -93,7 +100,15 @@
                 </div>
                 
                 <!-- Service 3 -->
-                undefined</section>
+                <div class="service-card">
+                    <div class="service-icon"><i class="fas fa-building"></i></div>
+                    <h3>SMB IT Services</h3>
+                    <p>Tailored IT solutions and support services for small and medium-sized businesses.</p>
+                    <a href="services.html" class="service-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Why Us Section -->
     <section class="section-padding" style="background: rgba(59, 130, 246, 0.05); border-top: var(--border-thin); border-bottom: var(--border-thin);">
