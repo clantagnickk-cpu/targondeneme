@@ -29,16 +29,6 @@ const getFooter = (prefix) => `
                         <li><a href="${prefix}contact.html">İletişim</a></li>
                     </ul>
                 </div>
-                
-                <div class="footer-links" style="display: flex; flex-direction: column; gap: 1rem;">
-                    <h4 style="color: #fff; margin-bottom: 0.5rem;">Hizmetler</h4>
-                    <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem;">
-                        <li><a href="${prefix}services/kobi-bt-hizmetleri.html">KOBİ BT Hizmetleri</a></li>
-                        <li><a href="${prefix}services/kurumsal-ag.html">Kurumsal Ağ ve Altyapı</a></li>
-                        <li><a href="${prefix}services/zafiyet-taramasi.html">Zafiyet Taraması</a></li>
-                        <li><a href="${prefix}services/veri-yedekleme.html">Veri Yedekleme</a></li>
-                    </ul>
-                </div>
             </div>
             
             <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 2rem; text-align: center;">

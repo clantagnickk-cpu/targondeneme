@@ -337,12 +337,12 @@ a:hover {
 
 /* Unique Hero Section */
 .hero {
-    min-height: 80vh;
+    min-height: auto;
     display: flex;
     align-items: center;
     position: relative;
-    padding-top: 100px;
-    padding-bottom: 40px;
+    padding-top: 170px;
+    padding-bottom: 50px;
     overflow: hidden;
 }
 
@@ -871,6 +871,13 @@ textarea.form-control {
     font-size: 4rem;
     margin-bottom: 1.5rem;
 }
+.footer-grid {
+    display: grid !important;
+    grid-template-columns: 1.5fr 1fr !important;
+    max-width: 800px !important;
+    margin: 0 auto 3rem auto !important;
+    gap: 5rem !important;
+}
 
 /* Responsive */
 @media (max-width: 992px) {
@@ -887,8 +894,86 @@ textarea.form-control {
     }
     
     .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 2.5rem !important;
+        margin-bottom: 2.5rem !important;
+    }
+
+    .footer-about {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+        padding-bottom: 2rem !important;
+        margin-bottom: 0.5rem !important;
+        width: 100% !important;
+        grid-column: auto !important;
+    }
+    
+    body.light-mode .footer-about {
+        border-bottom-color: rgba(15, 23, 42, 0.05) !important;
+    }
+
+    .footer-about p {
+        margin: 1rem auto 0 auto !important;
+        max-width: 450px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .social-links {
+        justify-content: center !important;
+        margin-top: 1rem !important;
+    }
+
+    .footer-links {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+        width: 100% !important;
+    }
+
+    .footer-links h4 {
+        margin-bottom: 1rem !important;
+        font-size: 1.05rem !important;
+        color: #fff !important;
+        text-align: center !important;
+        border-bottom: none !important;
+        padding-bottom: 0 !important;
+        width: auto !important;
+    }
+    
+    body.light-mode .footer-links h4 {
+        color: var(--text-main) !important;
+    }
+
+    .footer-links ul {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        padding: 0 !important;
+        list-style: none !important;
+        width: auto !important;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.6rem !important;
+        width: auto !important;
+    }
+
+    .footer-links a {
+        display: block !important;
+        padding-left: 0 !important;
+        font-size: 0.85rem !important;
+        color: var(--text-muted) !important;
+        line-height: 1.4 !important;
+    }
+
+    .footer-links a::before {
+        display: none !important;
     }
     
     html, body, a, button, input, textarea, .btn-primary, .btn-submit, .form-control {
@@ -985,107 +1070,6 @@ textarea.form-control {
         padding: 3rem 0 2rem;
     }
 
-    .footer-grid {
-        display: grid !important;
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 2rem 1.5rem !important;
-        margin-bottom: 2.5rem !important;
-    }
-
-    .footer-about {
-        grid-column: 1 / -1 !important; /* Full width on mobile */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-        padding-bottom: 1.5rem;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-    
-    body.light-mode .footer-about {
-        border-bottom-color: rgba(15, 23, 42, 0.05);
-    }
-
-    .footer-about p {
-        margin: 1rem auto 0 auto !important;
-        max-width: 450px;
-        font-size: 0.9rem;
-    }
-
-    .social-links {
-        justify-content: center;
-        margin-top: 1rem;
-    }
-
-    .footer-links {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        border-bottom: none !important;
-        padding-bottom: 0 !important;
-        margin-bottom: 0 !important;
-        text-align: left !important;
-    }
-    
-    body.light-mode .footer-links {
-        border-bottom-color: transparent;
-    }
-    
-    .footer-grid > div:nth-last-child(1) {
-        border-bottom: none;
-        padding-bottom: 0;
-        margin-bottom: 0;
-    }
-
-    .footer-links h4 {
-        margin-bottom: 1rem !important;
-        font-size: 1.05rem !important;
-        color: #fff;
-        text-align: left !important;
-        border-bottom: 1px solid rgba(0, 240, 255, 0.2);
-        padding-bottom: 5px;
-        width: 100%;
-    }
-    
-    body.light-mode .footer-links h4 {
-        color: var(--text-main);
-        border-bottom-color: rgba(2, 132, 199, 0.2);
-    }
-
-    .footer-links ul {
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        padding: 0 !important;
-        list-style: none !important;
-        width: 100%;
-    }
-
-    .footer-links li {
-        margin-bottom: 0.6rem !important;
-        width: 100%;
-    }
-
-    .footer-links a {
-        display: block;
-        padding-left: 15px;
-        font-size: 0.85rem !important;
-        color: var(--text-muted);
-        line-height: 1.4;
-    }
-
-    .footer-links a::before {
-        content: '›' !important;
-        position: absolute !important;
-        left: 0 !important;
-        opacity: 0.7 !important;
-        color: var(--accent-cyan) !important;
-        font-size: 1.1rem !important;
-        line-height: 1 !important;
-        top: 50% !important;
-        transform: translateY(-55%) !important;
-    }
 }
 
 /* ======================================================
@@ -1269,4 +1253,9 @@ body:not(.light-mode) .theme-toggle .fa-moon {
     z-index: 9999;
     box-shadow: 0 0 10px var(--accent-glow);
     transition: width 0.1s ease-out;
+}
+
+/* Offset for fixed navbar during hash jumps */
+.container[id] {
+    scroll-margin-top: 130px;
 }
